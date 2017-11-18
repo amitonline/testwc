@@ -1,0 +1,47 @@
+{
+
+  "manifest_version": 2,
+  "name": "Research WebClipper",
+  "version": "1.4",
+
+  "description": "Capture & Save content and web pages to your account",
+
+ "icons": {
+    "16": "icons/mlogo16.png",
+    "48": "icons/appicon.png"
+  },
+
+ "permissions": [
+    "https://d0016.mackeyllc.com/*",
+	"activeTab",
+	"browsingData",
+	"contextMenus",
+	"storage",
+	"tabs",
+	"webNavigation",
+	"webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+
+ "browser_action": {
+    "default_icon": "icons/appicon.png",
+    "default_title": "MackeyRMS WebClipper",
+    "default_popup": "popup/login.html"
+  },
+
+ "background": {
+      "scripts": ["jquery-3.2.1.min.js", "tokenize2.min.js", "user-struct.js", "team-struct.js", "note-struct.js", "background.js"]
+    },
+
+"content_scripts": [
+    {
+    "matches": [
+        "http://*/*",
+        "https://*/*"
+        ],
+    "js": ["content.js"]
+    }
+]  
+
+}

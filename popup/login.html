@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/tokenize2.min.css">
+	<link rel="stylesheet" href="login.css" />
+  </head>
+
+<body>
+	<div class="col-sm-12 title-color text-center">
+		<img src="/icons/appicon.png" align=center border=0>
+        </div>
+	<div class="clearfix"></div>
+
+	<div id="divLogin" style="display:none;">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8">
+	<div class="panel panel-default">
+		<form name=frm id=frm>
+
+		<div class="panel-heading panel-background"><div class="panel-title">Login</div></div>
+		<div class="panel-body panel-background">
+			<div class="col-sm-12 row-spacing">
+				<input class="form-control" id="companyname" name="companyname"
+					placeholder="Company Name" maxlength=100>
+			</div>
+			<div class="col-sm-12 row-spacing">
+				<input class="form-control" id="username" name="username"
+					placeholder="Username" maxlength=100>
+			</div>
+			<div class="col-sm-12 row-spacing">
+				<input class="form-control" type="password" id="pwd" name="pwd"
+					placeholder="Password" maxlength=20>
+			</div>
+			<div class="col-sm-12 row-spacing text-center">
+			    <img src="/ajax-loader.gif" border=0 align=center id="imgLoader" style="display:none;">
+			</div>
+			<div class="col-sm-12 text-center">
+				<button id="btnSignIn" class="btn btn-default btn-color">Sign In</button>
+			</div>
+
+		</div> <!--panel-body-->
+		</form>
+	</div> <!--panel-->
+      </div>
+     <div class="col-sm-2"></div>
+     </div> <!--divLogin-->
+
+     <!-- /////////////////////////////////////////////////////////////////////////// -->
+
+     <div id="divSave" style="display:none;">
+     <form name=frm2 id=frm2>
+		<input type=hidden name=mode id=mode value="publish">
+	<div class="col-sm-2"></div>
+	<!--main content starts-->
+ 	<div class="col-sm-8">
+		<div class="col-sm-12 text-center"><i><span id="pageTitle"></span></i></div>
+        </div>
+
+	<div class="col-sm-12 text-center" id="divLogOutMsg" style="display:none;">
+		 <img src="/ajax-loader.gif" border=0 align=center id="imgLogout">
+        </div>
+	<div class="clearfix"></div>
+
+	<div class="col-sm-12" id="divClip" style="display:none;">
+		<br>
+		<center>Fetching page content. Please wait.....</center>
+
+	</div>
+	<div class="clearfix"></div><br>
+	<div class="col-sm-12 text-center" id="divCloseClip" style="display:none;">
+		<button type="button" class="btn btn-block btncancel-color" id="lnkCloseClip">Cancel</button>
+	</div>
+
+	<div class="col-sm-12 text-center" id="divSavingMsg" style="display:none;">
+		 <img src="/ajax-loader.gif" border=0 align=center id="imgSaving">
+        </div>
+
+	<div class="clearfix"></div><Br>
+	<div class="col-sm-12 text-center">
+		<button type="button" class="btn btn-block btnsave-color" id="btnSave">Save</button>
+	</div>
+	<div class="clearfix"></div><br>
+	<div class="col-xs-4">	
+		<button id="btnModePublish" type="button" class="modebtn btn btn-block btn-toggle-sel-color">Publish</button>
+	</div>
+	<div class="col-xs-4">	
+		<button id="btnModePrivate" type="button" class="modebtn btn btn-block btn-toggle-color">Private</button>
+	</div>
+	<div class="col-xs-4">	
+		<button type="button" id="btnModeTeam" class="modebtn btn btn-block btn-toggle-color">Team</button>
+	</div>
+	<div class="clearfix"></div><br>
+	
+	<div class="col-xs-8"></div>
+	<div class="col-xs-4" id="divTeams" style="display:none;">
+		 <div class="checkbox">
+		    <label>
+		      <input type="checkbox"> Team 1
+		    </label>
+		  </div>
+	 	 <div class="checkbox">
+		    <label>
+		      <input type="checkbox"> Team 2
+		    </label>
+		  </div>
+
+	</div>
+	<div class="clearfix"></div><br>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-11">
+	<div class="dropdown menu-color">
+		  <button class="btn btn-default dropdown-toggle menu-color" type="button" 
+			id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			    User name
+			    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="menu1">
+		    <li><a href="#" id="lnkLogout">Logout</a></li>
+  		  </ul>
+	</div> <!--dropdown-->
+	</div>
+	<div class="clearfix"></div><br>
+	<div class="col-sm-12 sectionheading">Clip</div>
+	<div class="clearfix"></div><br>
+
+	<div class="col-sm-2"></div>
+	<div class="col-sm-10">
+		<a href="#" id="clip1" class="whitecolor modeclip"><span class="iconcolor glyphicon  glyphicon-ok-circle" aria-hidden="true"></span>&nbsp;Full Page</a>
+		<div class="clearfix"></div><br>
+		<a href="#" id="clip2" class="whitecolor modeclip"><span class="iconcolor glyphicon" aria-hidden="true"></span>&nbsp;Selection</a>
+		<div class="clearfix"></div><br>
+		<a href="#" id="clip3" class="whitecolor modeclip"><span class="iconcolor glyphicon" aria-hidden="true"></span>&nbsp;Bookmark</a>
+		<div class="clearfix"></div><br>
+	</div>
+
+	<div class="clearfix"></div><br>
+	<div class="col-sm-12 sectionheading">Tags</div>
+	<div class="clearfix"></div><br>
+	<div class="col-sm-12">
+		<select id="tags" multiple name="tags">
+		</select>
+	</div>
+	<div class="clearfix"></div><br><br><br><br><Br>
+	
+
+	<!--main content ends-->
+     <div class="col-sm-2"></div>
+
+     </form> <!--frm2-->
+  </div> <!--divSave-->
+
+
+<script src="/jquery-3.2.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>	
+<script src="/tokenize2.min.js"></script>
+
+<script src="/user-struct.js"></script>
+<script src="/team-struct.js"></script>
+<script src="/note-struct.js"></script>
+<script src="login.js"></script>
+</body>
+
+</html>
